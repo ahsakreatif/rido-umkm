@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+    }
+}
+
+@layer utilities {
+    .btn {
+        @apply py-4 px-6 font-bold text-sm rounded-full bg-transparent cursor-pointer relative text-black;
+        outline: none;
+        transition: 1s ease-in-out;
+    }
+
+    .svg {
+        @apply absolute inset-0 w-full h-full;
+    }
+
+    .bg-line {
+        fill: transparent;
+        stroke: black;
+        stroke-width: 1;
+        transition: 1s ease-in-out;
+    }
+
+    .hl-line {
+        fill: transparent;
+        stroke: #22c55e; /* Tailwind green-500 */
+        stroke-width: 2;
+        stroke-dasharray: 480;
+        stroke-dashoffset: 480;
+        transition: 1s ease-in-out;
+    }
+
+    .btn:hover .bg-line {
+        opacity: 0;
+    }
+
+    .btn:hover .hl-line {
+        stroke-dashoffset: 0;
+    }
+
+    .btn span {
+        @apply relative z-10;
+    }
+}

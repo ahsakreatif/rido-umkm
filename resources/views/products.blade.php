@@ -1,0 +1,51 @@
+@php
+  $products = [
+      [
+          'image' => 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+          'name' => 'Product Name',
+          'description' => 'ipsum dolor sit amet consectetur adipisicing elit. Ad, quas?',
+          'price' => '$399'
+      ],
+      [
+          'image' => 'https://21cleanshoes.vercel.app/_next/image?url=%2Fgallery%2Fgallery-14.jpeg&w=384&q=75',
+          'name' => 'Product Name',
+          'description' => 'ipsum dolor, sit a conseqtatis assumenda quisquam do.',
+          'price' => '$399'
+      ],
+  ];
+@endphp
+<x-app-layout>
+    <section class="py-8">
+      <div class="border-b-[3px] pb-2 mb-12">
+        <h2 
+          class="text-lg md:text-2xl after:mt-2 font-bold after:block w-max after:h-[3px] after:left-0 after:right-0 after:absolute relative after:bg-black ">
+          PRODUK UMKM
+        </h2>
+      </div>
+      <div class="flex-1 text-sm sm:text-base flex justify-end space-x-4">
+        <a href="/" class="font-medium">Beranda</a>
+        <span>/</span>
+        <span class="text-black/60">Produk</span>
+      </div>
+    </section>
+    @if (count($products) > 0)
+        <section class="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-3 gap-4">
+            @foreach ($products as $product)
+                <div>
+                    <div class="h-full cursor-pointer rounded-lg bg-white p-2 shadow shadow-black/20 duration-150 hover:scale-105 hover:shadow-md">
+                        <img class="w-full max-h-52 h-52 rounded-lg object-cover object-center" src="{{ $product['image'] }}" alt="product" />
+                        <div class="p-4">
+                            <p class="font-bold">{{ $product['name'] }}</p>
+                            <p class="mb-4 mt-2">{{ $product['description'] }}</p>
+                            <p class="text-xl font-semibold text-gray-800">{{ $product['price'] }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </section>
+    @else
+        <div class="text-center py-8">
+            <p class="text-xl font-semibold text-gray-600">Belum ada produk tersedia :(</p>
+        </div>
+    @endif
+</x-app-layout>
