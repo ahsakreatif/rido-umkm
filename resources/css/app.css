@@ -3,17 +3,27 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --accent: #99EA48;
+    --primary: white;
+    --secondary: black;
+    --tertiary: #555;
+}
+
 @layer base {
     body {
         font-family: "Plus Jakarta Sans", sans-serif;
+        @apply text-secondary
     }
+    h1,h2,h3,h4,h5,h6{@apply text-secondary}
+    p, span{@apply text-tertiary}
 }
 
 @layer utilities {
     .btn {
         @apply py-4 px-6 font-bold text-sm rounded-full bg-transparent cursor-pointer relative text-black;
         outline: none;
-        transition: 1s ease-in-out;
+        transition: 0.7s ease-in-out;
     }
 
     .svg {
@@ -24,16 +34,16 @@
         fill: transparent;
         stroke: black;
         stroke-width: 1;
-        transition: 1s ease-in-out;
+        transition: 0.7s ease-in-out;
     }
 
     .hl-line {
         fill: transparent;
-        stroke: #22c55e; /* Tailwind green-500 */
+        stroke: var(--accent); /* Tailwind green-500 */
         stroke-width: 2;
         stroke-dasharray: 480;
         stroke-dashoffset: 480;
-        transition: 1s ease-in-out;
+        transition: 0.7s ease-in-out;
     }
 
     .btn:hover .bg-line {

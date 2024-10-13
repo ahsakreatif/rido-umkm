@@ -16,6 +16,12 @@ export default {
           '2xl': '6rem',
         },
       },
+      colors: {
+        "primary": "var(--primary)",
+        "secondary": "var(--secondary)",
+        "tertiary": "var(--tertiary)",
+        "accent": "var(--accent)",
+      }
     },
   },
   plugins: [],

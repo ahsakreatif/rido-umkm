@@ -19,10 +19,11 @@
         <header class="sticky top-0 z-10 bg-white">
             <x-navbar></x-navbar>
         </header>
-        <main class="container mx-auto">
+        <main class="container mx-auto pb-20">
             {{ $slot }}
         </main>
-        <footer>
+        <footer class="container mx-auto">
+            <x-footer></x-footer>
         </footer>
     </body>
 </html>

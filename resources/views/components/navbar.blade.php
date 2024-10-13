@@ -2,8 +2,8 @@
     $menuItems = [
         ['url' => '/', 'name' => 'Beranda'],
         ['url' => 'products', 'name' => 'Produk'],
-        ['url' => 'services', 'name' => 'Layanan'],
-        ['url' => 'pricing', 'name' => 'Harga'],
+        ['url' => 'services', 'name' => 'Tentang Kami'],
+        // ['url' => 'pricing', 'name' => 'Harga'],
         ['url' => 'contact', 'name' => 'Kontak'],
     ];
 @endphp
@@ -26,13 +26,21 @@
                         fill="#191F33" />
                 </g>
             </svg>
-            <p class="text-2xl">UMKM</p>
+            <p class="text-2xl text-secondary">UMKM</p>
         </a>
         <ul class="hidden lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-4">
             @foreach($menuItems as $item)
                 <li>
-                    <a class="p-3 {{ request()->is($item['url']) ? 'text-black font-bold after:block after:w-2 after:h-2 after:bg-green-500 after:absolute after:left-0 after:right-0 after:mx-auto after:rounded-full relative after:hover:w-[60%] after:hover:h-1  after:transition-all after:duration-200' : 'text-black/80 font-medium hover:opacity-80' }}" 
-                       href="{{ url($item['url']) }}">
+                    <a 
+                        class="p-3 {{ request()->is($item['url']) ? 'text-black font-bold after:block after:w-2 after:h-2 
+                        after:bg-accent after:absolute after:left-0 after:right-0 after:mx-auto 
+                        after:rounded-full relative after:hover:w-[60%] after:hover:h-1  
+                        after:transition-all after:duration-200 before:block before:w-2 before:h-2 before:bg-accent before:absolute
+                        before:left-0 before:right-0 before:mx-auto before:bottom-[2px] before:animate-ping  before:rounded-full
+                        hover:before:hidden' 
+                        : 'text-tertiary font-medium hover:opacity-80' 
+                        }}" 
+                        href="{{ url($item['url']) }}">
                         {{ $item['name'] }}
                     </a>
                 </li>
@@ -51,12 +59,12 @@
     {{-- <a class="hidden lg:inline-block py-3 px-6 text-sm text-black ring-1 hover:ring-2 hover:ring-green-400 hover:scale-105 ring-black font-bold rounded-full transition duration-200"
         href="#">Mulai Sekarang!
     </a> --}}
-    <button class="btn">
+    <button class="btn hidden lg:block">
         <svg class="svg absolute inset-0 w-full h-full" viewBox="0 0 180 60" preserveAspectRatio="none">
             <rect x="2" y="2" width="176" height="56" rx="28" ry="28" class="bg-line" />
             <rect x="2" y="2" width="176" height="56" rx="28" ry="28" class="hl-line" />
         </svg>
-        <span class="text-black relative z-10">Mulai Sekarang!</span>
+        <span class="text-secondary relative z-10">Mulai Sekarang!</span>
     </button>
     
 </nav>
