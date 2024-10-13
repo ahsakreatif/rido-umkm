@@ -15,15 +15,28 @@
          @vite('resources/css/app.css')
     </head>
     <body>
-        <section class="py-2"></section>
-        <header class="sticky top-0 z-10 bg-white">
+        <header class="">
             <x-navbar></x-navbar>
         </header>
-        <main class="container mx-auto pb-20">
+        <main>
             {{ $slot }}
         </main>
         <footer class="container mx-auto">
             <x-footer></x-footer>
         </footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var navbar = document.getElementById('navbar');
+                var scrollThreshold = 50; // Atur sesuai kebutuhan
+
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > scrollThreshold) {
+                        navbar.classList.add('bg-white', 'shadow');
+                    } else {
+                        navbar.classList.remove('bg-white', 'shadow');
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

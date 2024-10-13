@@ -1,4 +1,4 @@
-<div class="mx-auto pb-6 pt-12">
+<div class="mx-auto pb-6">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div>
             <div class="flex justify-center sm:justify-start">

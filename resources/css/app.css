@@ -21,9 +21,12 @@
 
 @layer utilities {
     .btn {
-        @apply py-4 px-6 font-bold text-sm rounded-full bg-transparent cursor-pointer relative text-black;
+        @apply py-4 px-6 font-bold text-sm rounded-full bg-transparent cursor-pointer relative;
         outline: none;
-        transition: 0.7s ease-in-out;
+        transition:  
+            stroke-dashoffset 0.7s ease-in-out, 
+            stroke-dasharray 0.7s ease-in-out, 
+            stroke-width 0.7s ease-in-out;
     }
 
     .svg {
@@ -32,9 +35,11 @@
 
     .bg-line {
         fill: transparent;
-        stroke: black;
-        stroke-width: 1;
-        transition: 0.7s ease-in-out;
+        stroke-width: 2;
+        transition:  
+            stroke-dashoffset 0.7s ease-in-out, 
+            stroke-dasharray 0.7s ease-in-out, 
+            stroke-width 0.7s ease-in-out;
     }
 
     .hl-line {
@@ -43,7 +48,10 @@
         stroke-width: 2;
         stroke-dasharray: 480;
         stroke-dashoffset: 480;
-        transition: 0.7s ease-in-out;
+        transition:  
+            stroke-dashoffset 0.7s ease-in-out, 
+            stroke-dasharray 0.7s ease-in-out, 
+            stroke-width 0.7s ease-in-out;
     }
 
     .btn:hover .bg-line {
