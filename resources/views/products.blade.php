@@ -10,7 +10,7 @@
         [
             'image' => 'https://21cleanshoes.vercel.app/_next/image?url=%2Fgallery%2Fgallery-14.jpeg&w=384&q=75',
             'name' => 'Product Name',
-            'description' => 'ipsum dolor, sit a conseqtatis assumenda quisquam do.',
+            'description' => 'ipsum dolor, sit a conseqtatis assumenda quisquam do,.',
             'price' => '$399',
         ],
     ];
