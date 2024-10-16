@@ -1,5 +1,5 @@
 <x-app-layout>
-<div class="min-h-screen py-40" style="background-image: linear-gradient(115deg, #f3f4f6, #f3f4f6)">
+<div class="min-h-screen grid place-items-center bg-green-100">
   <div class="container mx-auto">
     <!-- wrapper  -->
     <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
@@ -12,7 +12,7 @@
       </div>
       <!-- right  -->
       <div class="w-full lg:w-1/2 py-16 px-12">
-        <h2 class="text-3xl mb-4">Pendaftaran</h2>
+        <h2 class="text-3xl mb-4">Pendaftaran UMKM</h2>
         <p class="mb-4">Buat akun usaha Anda. Gratis dan hanya membutuhkan waktu sebentar</p>
         <form action="#">
             <div class="mt-5">

@@ -15,28 +15,18 @@
          @vite('resources/css/app.css')
     </head>
     <body>
-        <header class="">
-            <x-navbar></x-navbar>
-        </header>
+        @if (!request()->is('register*'))
+            <header class="">
+                <x-navbar></x-navbar>
+            </header>
+        @endif
         <main>
             {{ $slot }}
         </main>
-        <footer class="container mx-auto">
-            <x-footer></x-footer>
-        </footer>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var navbar = document.getElementById('navbar');
-                var scrollThreshold = 50; // Atur sesuai kebutuhan
-
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > scrollThreshold) {
-                        navbar.classList.add('bg-white', 'shadow');
-                    } else {
-                        navbar.classList.remove('bg-white', 'shadow');
-                    }
-                });
-            });
-        </script>
+        @if (!request()->is('register*'))
+            <footer class="container mx-auto">
+                <x-footer></x-footer>
+            </footer>
+        @endif
     </body>
 </html>

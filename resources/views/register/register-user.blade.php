@@ -1,71 +1,97 @@
 <x-app-layout>
-    <div class="bg-gray-100 flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div class="w-full max-w-xs md:max-w-sm space-y-6 mt-8"> <!-- Mengurangi ukuran maksimal form -->
-            <div class="bg-white shadow-md rounded-lg p-4 border border-gray-300"> <!-- Mengecilkan shadow dan border -->
-    
-                <img class="mx-auto h-10 w-auto" src="https://th.bing.com/th/id/OIP.CxQ2bTvLg_vPTwmt56B1swHaHa?w=860&h=860&rs=1&pid=ImgDetMain" alt="" />
-    
-                <h2 class="my-1 text-center text-xl font-semibold text-gray-900"> <!-- Mengecilkan ukuran font judul -->
-                    Daftar akun
-                </h2>
-    
-                <form class="space-y-3" method="POST"> <!-- Mengurangi jarak antar elemen form -->
-    
+    <div class="min-h-screen grid place-items-center bg-green-100">
+        <div class="container mx-auto">
+            <!-- wrapper  -->
+            <div class="flex flex-col lg:flex-row max-w-[850px] bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+                <!-- left  -->
+                <div class="w-full lg:w-1/2 hidden lg:flex flex-col items-center justify-center p-12 bg-no-repeat bg-center bg-cover" style="background-image: url('https://th.bing.com/th/id/OIP.HmiaVTGoYjbdjyhwEs22LwHaHa?rs=1&pid=ImgDetMain')">
+                    {{-- <h1 class="text-black text-3xl font-bold mb-3">Selamat Datang</h1>
                     <div>
-                        <label for="username" class="block text-xs font-medium text-gray-700">Nama Lengkap</label> <!-- Mengecilkan ukuran font label -->
-                        <div class="mt-1">
-                            <input name="username" type="username" required
-                                class="px-2 py-1 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 text-xs" /> <!-- Mengecilkan padding dan ukuran font input -->
-                        </div>
-                    </div>
-    
-                    <div>
-                        <label for="nik" class="block text-xs font-medium text-gray-700">NIK</label>
-                        <div class="mt-1">
-                            <input name="nik" type="number" pattern="\d{16}" required
-                                class="px-2 py-1 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 text-xs" />
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="phone" class="block text-xs font-medium text-gray-700">No. HP</label>
-                        <div class="mt-1">
-                            <input name="phone" type="number" required
-                                class="px-2 py-1 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 text-xs" />
-                        </div>
-                    </div>
-    
-                    <div>
-                        <label for="password" class="block text-xs font-medium text-gray-700">Password</label>
-                        <div class="mt-1">
-                            <input name="password" type="password" required
-                                class="px-2 py-1 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 text-xs" />
-                        </div>
-                    </div>
-    
-                    <div>
-                        <label for="confirm_password" class="block text-xs font-medium text-gray-700">Confirm Password</label>
-                        <div class="mt-1">
-                            <input name="confirm_password" type="password" required
-                                class="px-2 py-1 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 text-xs" />
+                      <p class="text-black">Ayok daftarkan usaha anda di website kami</p>
+                    </div> --}}
+                </div>
+                <!-- right  -->
+                <div class="w-full lg:w-1/2 py-16 px-6 sm:px-12">
+                    <!-- User Registration Form -->
+                    <div id="userRegisterForm">
+                        <h2 class="text-3xl mb-4 font-bold">Daftar Akun User</h2>
+                        <p class="mb-4">Daftar sebagai user biasa untuk melihat produk UMKM!</p>
+                        <form action="#" class="space-y-4">
+                            <div>
+                                <input type="text" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400" placeholder="Nama Lengkap">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="NIK" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="Nomor HP" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                            </div>
+                            <div>
+                                <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                            </div>
+                            <div>
+                                <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                            </div>
+                            <div class="mt-5">
+                                <button type="submit" class="bg-green-500 w-full text-center text-white py-3 rounded">Daftar!</button>
+                            </div>
+                        </form>
+                        <div class="mt-5">
+                            <span class="text-sm">
+                                Ingin mendaftarkan UMKM? <span id="showUmkmForm" class="cursor-pointer text-green-500 font-semibold underline">Daftar UMKM!</span> 
+                            </span>
                         </div>
                     </div>
 
-                    <div class="mt-4">
-                        <input type="checkbox" class="border border-gray-400">
-                        <span class="text-xs">
-                          I accept the <a href="#" class="text-green-500 font-semibold">Terms of Use</a> & <a href="#" class="text-green-500 font-semibold">Privacy Policy</a> 
-                        </span>
+                    <!-- UMKM Registration Form -->
+                    <div id="umkmRegisterForm" style="display: none;">
+                        <h2 class="text-3xl mb-4 font-bold ">Pendaftaran UMKM</h2>
+                        <p class="mb-4">Buat akun usaha Anda. Gratis dan hanya membutuhkan waktu sebentar</p>
+                        <form action="#" class="space-y-4">
+                            <div>
+                                <input type="text" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400" placeholder="Nama Lengkap">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="NIK" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="Nomor HP" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                            </div>
+                            <div>
+                                <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                            </div>
+                            <div>
+                                <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                            </div>
+                            <div class="mt-5">
+                                <button type="submit" class="bg-green-500 w-full text-center text-white py-3 rounded">Daftar UMKM</button>
+                            </div>
+                        </form>
+                        <div class="mt-5">
+                            <span class="text-sm">
+                                Daftar sebagai user biasa? <span id="showUserForm" class="cursor-pointer text-green-500 font-semibold underline">Daftar!</span> 
+                            </span>
+                        </div>
                     </div>
-
-                    <div class="mt-3">
-                        <button type="submit"
-                            class="flex w-full justify-center rounded-md border border-transparent bg-green-500 py-1.5 px-4 text-xs font-medium text-white shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2">
-                            Register Account
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const userRegisterForm = document.getElementById('userRegisterForm');
+        const umkmRegisterForm = document.getElementById('umkmRegisterForm');
+        const showUmkmForm = document.getElementById('showUmkmForm');
+        const showUserForm = document.getElementById('showUserForm');
+
+        showUmkmForm.addEventListener('click', () => {
+            userRegisterForm.style.display = 'none';
+            umkmRegisterForm.style.display = 'block';
+        });
+
+        showUserForm.addEventListener('click', () => {
+            umkmRegisterForm.style.display = 'none';
+            userRegisterForm.style.display = 'block';
+        });
+    </script>
 </x-app-layout>
