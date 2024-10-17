@@ -16,7 +16,7 @@
     ];
 @endphp
 <x-app-layout>
-    <section class="py-32 container">
+    <section class="py-32 container mx-auto">
         <div class="pb-8">
             <div class="border-b-[3px] pb-2 mb-12">
                 <h2
