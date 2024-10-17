@@ -5,10 +5,6 @@
             <div class="flex flex-col lg:flex-row max-w-[850px] bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
                 <!-- left  -->
                 <div class="w-full lg:w-1/2 hidden lg:flex flex-col items-center justify-center p-12 bg-no-repeat bg-center bg-cover" style="background-image: url('https://th.bing.com/th/id/OIP.HmiaVTGoYjbdjyhwEs22LwHaHa?rs=1&pid=ImgDetMain')">
-                    {{-- <h1 class="text-black text-3xl font-bold mb-3">Selamat Datang</h1>
-                    <div>
-                      <p class="text-black">Ayok daftarkan usaha anda di website kami</p>
-                    </div> --}}
                 </div>
                 <!-- right  -->
                 <div class="w-full lg:w-1/2 py-16 px-6 sm:px-12">
@@ -32,6 +28,12 @@
                             <div>
                                 <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
                             </div>
+                            <div class="mt-5">
+                                <input type="checkbox" class="border border-gray-400">
+                                <span>
+                                  I accept the <a href="#" class="text-green-500 font-semibold">Terms of Use</a> & <a href="#" class="text-green-500 font-semibold">Privacy Policy</a> 
+                                </span>
+                              </div>
                             <div class="mt-5">
                                 <button type="submit" class="bg-green-500 w-full text-center text-white py-3 rounded">Daftar!</button>
                             </div>
@@ -63,6 +65,12 @@
                             <div>
                                 <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
                             </div>
+                            <div class="mt-5">
+                                <input type="checkbox" class="border border-gray-400">
+                                <span>
+                                  I accept the <a href="#" class="text-green-500 font-semibold">Terms of Use</a> & <a href="#" class="text-green-500 font-semibold">Privacy Policy</a> 
+                                </span>
+                              </div>
                             <div class="mt-5">
                                 <button type="submit" class="bg-green-500 w-full text-center text-white py-3 rounded">Daftar UMKM</button>
                             </div>
