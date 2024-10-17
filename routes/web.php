@@ -8,4 +8,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => view('welcome'));
 Route::get('/products', fn () => view('products'));
-Route::get('/register',fn() => view('auth.register-user'));
+Route::get('/register',fn() => view('auth.register'));
