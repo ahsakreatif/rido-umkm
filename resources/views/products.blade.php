@@ -31,7 +31,7 @@
             </div>
         </div>
         @if (count($products) > 0)
-            <div class="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="grid lg:grid-cols-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 @foreach ($products as $product)
                     <div>
                         <div
