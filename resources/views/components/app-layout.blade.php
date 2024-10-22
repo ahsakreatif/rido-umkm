@@ -15,18 +15,14 @@
          @vite('resources/css/app.css')
     </head>
     <body>
-        @if (!request()->is('register*'))
             <header class="">
                 <x-navbar></x-navbar>
             </header>
-        @endif
         <main>
             {{ $slot }}
         </main>
-        @if (!request()->is('register*'))
             <footer class="container mx-auto">
                 <x-footer></x-footer>
             </footer>
-        @endif
     </body>
 </html>

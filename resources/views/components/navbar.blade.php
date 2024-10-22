@@ -49,7 +49,7 @@
                 </svg>
             </button>
         </div>
-        <a href="/register" class="btn hidden lg:block text-inherit">
+        <a href="{{ route('login') }}" class="btn hidden lg:block text-inherit">
             <svg class="svg absolute inset-0 w-full h-full" viewBox="0 0 180 60" preserveAspectRatio="none">
                 <rect x="2" y="2" width="176" height="56" rx="28" ry="28" class="bg-line stroke-inherit" />
                 <rect x="2" y="2" width="176" height="56" rx="28" ry="28" class="hl-line" />
@@ -109,9 +109,9 @@
         <div class="mt-auto">
             <div class="pt-6">
                 <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl"
-                    href="#">Masuk</a>
+                    href="{{ route('login') }}">Masuk</a>
                 <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-green-500 hover:bg-green-600  rounded-xl"
-                    href="/register">Daftar</a>
+                    href="{{ route('register-user') }}">Daftar</a>
             </div>
             <p class="my-4 text-xs text-center text-gray-400">
                 <span>Copyright © UMKM</span>
