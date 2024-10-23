@@ -40,7 +40,7 @@
                                 src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}" />
                             <div class="p-4">
                                 <p class="font-bold">{{ $product->title }}</p>
-                                <p class="mb-4 mt-2">{{ Str::limit($product->about, 100) }}</p>
+                                <p class="mb-4 mt-2">{!! Str::limit($product->about, 100) !!}</p>
                                 <p class="text-xl font-semibold text-gray-800">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                             </div>
                         </div>
