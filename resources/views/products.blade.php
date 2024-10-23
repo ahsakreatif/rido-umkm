@@ -1,19 +1,19 @@
 @php
-    $products = [
-        [
-            'image' =>
-                'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            'name' => 'Product Name',
-            'description' => 'ipsum dolor sit amet consectetur adipisicing elit. Ad, quas?',
-            'price' => '$399',
-        ],
-        [
-            'image' => 'https://21cleanshoes.vercel.app/_next/image?url=%2Fgallery%2Fgallery-14.jpeg&w=384&q=75',
-            'name' => 'Product Name',
-            'description' => 'ipsum dolor, sit a conseqtatis assumenda quisquam do,.',
-            'price' => '$399',
-        ],
-    ];
+    // $products = [
+    //     [
+    //         'image' =>
+    //             'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    //         'name' => 'Product Name',
+    //         'description' => 'ipsum dolor sit amet consectetur adipisicing elit. Ad, quas?',
+    //         'price' => '$399',
+    //     ],
+    //     [
+    //         'image' => 'https://21cleanshoes.vercel.app/_next/image?url=%2Fgallery%2Fgallery-14.jpeg&w=384&q=75',
+    //         'name' => 'Product Name',
+    //         'description' => 'ipsum dolor, sit a conseqtatis assumenda quisquam do,.',
+    //         'price' => '$399',
+    //     ],
+    // ];
 @endphp
 <x-app-layout>
     <section class="py-32 container mx-auto">
@@ -37,11 +37,11 @@
                         <div
                             class="h-full cursor-pointer rounded-lg bg-white p-2 shadow shadow-black/20 duration-150 hover:scale-105 hover:shadow-md">
                             <img class="w-full max-h-52 h-52 rounded-lg object-cover object-center"
-                                src="{{ $product['image'] }}" alt="product" />
+                                src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}" />
                             <div class="p-4">
-                                <p class="font-bold">{{ $product['name'] }}</p>
-                                <p class="mb-4 mt-2">{{ $product['description'] }}</p>
-                                <p class="text-xl font-semibold text-gray-800">{{ $product['price'] }}</p>
+                                <p class="font-bold">{{ $product->title }}</p>
+                                <p class="mb-4 mt-2">{{ Str::limit($product->about, 100) }}</p>
+                                <p class="text-xl font-semibold text-gray-800">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                             </div>
                         </div>
                     </div>

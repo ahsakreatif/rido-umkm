@@ -1,12 +1,14 @@
 <?php
+
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::get('/', fn () => view('welcome'))->name('dashboard');
-Route::get('/products', fn () => view('products'));
+// Route::get('/', fn () => view('welcome'))->name('dashboard');
+Route::get('/', action: Controllers\HomeController::class);
+Route::get('/products', action: Controllers\ProductsController::class);
+
 
 // Register
 Route::get('/register-user',  fn () => view('auth.register-user'))->name('register-user');
