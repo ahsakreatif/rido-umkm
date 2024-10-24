@@ -3,10 +3,11 @@
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
-
+use App\Http\Controllers\HomeController;
 
 // Route::get('/', fn () => view('welcome'))->name('dashboard');
-Route::get('/', action: Controllers\HomeController::class);
+// Route::get('/', action: Controllers\HomeController::class);
+Route::get('/',[HomeController::class,'index'])->name('dashboard');
 Route::get('/products', action: Controllers\ProductsController::class);
 
 
