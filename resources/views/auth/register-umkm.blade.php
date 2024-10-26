@@ -18,29 +18,32 @@
                     <div id="umkmRegisterForm">
                         <h2 class="text-3xl mb-4 font-bold ">Pendaftaran UMKM</h2>
                         <p class="mb-4">Buat akun usaha Anda. Gratis dan hanya membutuhkan waktu sebentar</p>
-                        <form action="#" method="POST" class="space-y-4">
+                        <form action="{{ route('register-umkm') }}" method="POST" class="space-y-4">
                             @csrf
                             <div>
-                                <input type="text" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400" placeholder="Nama Lengkap">
+                                <input type="text" name="name" placeholder="Nama Lengkap" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
                             </div>
                             <div>
-                                <input type="number" placeholder="NIK" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                                <input type="email" name="email" placeholder="Email" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
                             </div>
                             <div>
-                                <input type="number" placeholder="Nomor HP" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                                <input type="text" name="nik" placeholder="NIK" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
                             </div>
                             <div>
-                                <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                                <input type="text" name="phone" placeholder="Nomor HP" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
                             </div>
                             <div>
-                                <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                                <input type="password" name="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
                             </div>
-                            <div class="mt-5">
+                            <div>
+                                <input type="password" name="password_confirmation" placeholder="Confirm Password" required class="border border-gray-400 py-1 px-2 w-full rounded focus:border-green-400">
+                            </div>
+                            {{-- <div class="mt-5">
                                 <input type="checkbox" class="border border-gray-400">
                                 <span>
                                   I accept the <a href="#" class="text-green-500 font-semibold">Terms of Use</a> & <a href="#" class="text-green-500 font-semibold">Privacy Policy</a> 
                                 </span>
-                              </div>
+                              </div> --}}
                               <div class="mt-5">
                                 <button type="submit" class="bg-green-500 w-full text-center text-white py-3 rounded">Daftar UMKM</button>
                                 </div>
