@@ -2,7 +2,13 @@
     <div class="min-h-screen grid place-items-center bg-green-100">
         <div class="container mx-auto">
             <!-- wrapper  -->
-            <div class="flex flex-col lg:flex-row max-w-[850px] bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+            
+            <div class="relative flex max-h-[80vh] flex-col lg:flex-row max-w-[850px] bg-white rounded-xl mx-auto shadow-lg">
+                <div class="absolute -top-12 left-0 flex items-center gap-2">
+                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M32 15H3.41l8.29-8.29-1.41-1.42-10 10a1 1 0 0 0 0 1.41l10 10 1.41-1.41L3.41 17H32z" data-name="4-Arrow Left"/>
+                    </svg>
+                    <p>Kembali</p>
+                </div>
                 <!-- left  -->
                 <div class="w-full lg:w-1/2 hidden lg:flex flex-col items-center justify-center p-12 bg-no-repeat bg-center bg-cover" style="background-image: url('https://th.bing.com/th/id/OIP.HmiaVTGoYjbdjyhwEs22LwHaHa?rs=1&pid=ImgDetMain')">
                 </div>
