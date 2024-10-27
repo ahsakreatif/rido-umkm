@@ -3,21 +3,36 @@
         <div class="container mx-auto">
             <!-- wrapper  -->
             
-            <div class="relative flex max-h-[80vh] flex-col lg:flex-row max-w-[850px] bg-white rounded-xl mx-auto shadow-lg">
-                <div class="absolute -top-12 left-0 flex items-center gap-2">
-                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M32 15H3.41l8.29-8.29-1.41-1.42-10 10a1 1 0 0 0 0 1.41l10 10 1.41-1.41L3.41 17H32z" data-name="4-Arrow Left"/>
-                    </svg>
-                    <p>Kembali</p>
-                </div>
+            <div class=" flex flex-col lg:flex-row max-w-[850px] bg-white rounded-xl mx-auto shadow-lg">
                 <!-- left  -->
                 <div class="w-full lg:w-1/2 hidden lg:flex flex-col items-center justify-center p-12 bg-no-repeat bg-center bg-cover" style="background-image: url('https://th.bing.com/th/id/OIP.HmiaVTGoYjbdjyhwEs22LwHaHa?rs=1&pid=ImgDetMain')">
                 </div>
                 <!-- right  -->
-                <div class="w-full lg:w-1/2 py-16 px-6 sm:px-12">
+                <div class="w-full relative lg:w-1/2 py-16 px-6 sm:px-12">
+                    <div class="absolute top-4 left-6 flex items-center gap-2 cursor-pointer" onclick="window.history.back()">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M32 15H3.41l8.29-8.29-1.41-1.42-10 10a1 1 0 0 0 0 1.41l10 10 1.41-1.41L3.41 17H32z" data-name="4-Arrow Left"/>
+                        </svg>
+                        <p class="text-lg font-bold text-black">Kembali</p>
+                    </div>
                     <!-- UMKM Registration Form -->
                     <div id="umkmRegisterForm">
                         <h2 class="text-3xl mb-4 font-bold ">Pendaftaran UMKM</h2>
                         <p class="mb-4">Buat akun usaha Anda. Gratis dan hanya membutuhkan waktu sebentar</p>
+                        @if ($errors->any())
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if (session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                         <form action="{{ route('register-umkm') }}" method="POST" class="space-y-4">
                             @csrf
                             <div>

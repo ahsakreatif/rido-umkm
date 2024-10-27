@@ -1,69 +1,80 @@
 <x-app-layout>
-<section class="bg-gray-100 min-h-screen flex box-border justify-center items-center">
-    <div class="bg-[#dfa674] rounded-2xl flex max-w-3xl p-5 items-center">
-        <div class="md:w-1/2 px-8">
-            <h2 class="font-bold text-3xl text-[#002D74]">Login</h2>
-            <p class="text-sm mt-4 text-[#002D74]">If you already a member, easily log in now.</p>
-
-            <form action="" class="flex flex-col gap-4">
+    <div class="bg-green-100 font-[sans-serif]">
+        <div class="min-h-screen flex flex-col items-center justify-center py-6 px-4">
+          <div class="max-w-md w-full">
+            <svg class="mb-8 mx-auto" width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_1_358" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="34">
+                    <path d="M0 6.5C0 3.67157 0 2.25736 0.87868 1.37868C1.75736 0.5 3.17157 0.5 6 0.5H31.2321C32.2085 0.5 33 1.2915 33 2.26786C33 19.5169 19.0169 33.5 1.76786 33.5C0.791496 33.5 0 32.7085 0 31.7321V6.5Z" fill="#99EA48" />
+                </mask>
+                <g mask="url(#mask0_1_358)">
+                    <path d="M0 6.5C0 3.67157 0 2.25736 0.87868 1.37868C1.75736 0.5 3.17157 0.5 6 0.5H31.2321C32.2085 0.5 33 1.2915 33 2.26786C33 19.5169 19.0169 33.5 1.76786 33.5C0.791496 33.5 0 32.7085 0 31.7321V6.5Z" fill="#99EA48" />
+                    <path d="M11 18C11 15.1716 11 13.7574 11.8787 12.8787C12.7574 12 14.1716 12 17 12H24.25C24.6642 12 25 12.3358 25 12.75C25 20.0678 19.0678 26 11.75 26C11.3358 26 11 25.6642 11 25.25V18Z" fill="#191F33" />
+                </g>
+            </svg>
+  
+            <div class="p-8 rounded-2xl bg-white shadow">
+              <h2 class="text-gray-800 text-center text-2xl font-bold">Login</h2>
+              @if(session('success'))
+              <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 mt-3 rounded relative" role="alert">
+                  {{ session('success') }}
+              </div>
+          @endif
+  
+          @if($errors->any())
+              <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-3 rounded relative" role="alert">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
+              <form action="{{ route('login.submit') }}" method="POST" class="mt-8 space-y-4">
                 @csrf
-                <input class="p-2 mt-8 rounded-xl border" type="text" name="name" placeholder="Nama Lengkap">
-                <div class="relative">
-                    <input class="p-2 rounded-xl border w-full" type="password" name="password" id="password" placeholder="Password">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" id="togglePassword"
-                        class="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer z-20 opacity-100"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z">
-                        </path>
-                        <path
-                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z">
-                        </path>
+                <div>
+                  <label class="text-gray-800 text-sm mb-2 block">Email</label>
+                  <div class="relative flex items-center">
+                    <input name="username" type="text" required class="w-full text-gray-800 text-sm border border-gray-300 px-4 py-3 rounded-md outline-accent" placeholder="Masukan Email" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-4 h-4 absolute right-4" viewBox="0 0 24 24">
+                      <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                      <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>
                     </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-eye-slash-fill absolute top-1/2 right-3 -z-1 -translate-y-1/2 cursor-pointer hidden"
-                        id="mama" viewBox="0 0 16 16">
-                        <path
-                            d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z">
-                        </path>
-                        <path
-                            d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z">
-                        </path>
-                    </svg>
+                  </div>
                 </div>
-                <a href="{{ route('dashboard') }}" class="bg-[#002D74] text-white py-2 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium text-center block">
-                    Login
-                </a>
-            </form>
-            <div class="mt-6  items-center text-gray-100">
-                <hr class="border-gray-300">
-                <p class="text-center text-sm">OR</p>
-                <hr class="border-gray-300">
-            </div>
-            <button class="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 hover:bg-[#60a8bc4f] font-medium">
-                    <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px">
-                        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
-                        <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
-                        <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
-                        <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+  
+                <div>
+                  <label class="text-gray-800 text-sm mb-2 block">Password</label>
+                  <div class="relative flex items-center">
+                    <input name="password" type="password" required class="w-full text-gray-800 text-sm border border-gray-300 px-4 py-3 rounded-md outline-accent" placeholder="Masukan Password" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-4 h-4 absolute right-4 cursor-pointer" viewBox="0 0 128 128">
+                      <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
                     </svg>
-
-                    Login with Google
-                </button>
-            <div class="mt-10 text-sm border-b border-gray-500 py-5 playfair tooltip">Forget password?</div>
-
-            <div class="mt-4 text-sm flex justify-between items-center container-mr">
-                <p class="mr-3 md:mr-0">If you don't have an account..</p>
-                <a href="{{ route('register-user') }}">
-                    <button class="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">
-                        Register
-                    </button>
-                </a>
+                  </div>
+                </div>
+  
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                  <div class="flex items-center">
+                    <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 text-green-400 focus:ring-accent border-gray-300 rounded" />
+                    <label for="remember-me" class="ml-3 block text-sm text-gray-800">
+                      Remember me
+                    </label>
+                  </div>
+                  <div class="text-sm">
+                    <a href="jajvascript:void(0);" class="text-green-400 hover:underline font-semibold">
+                      Lupa password?
+                    </a>
+                  </div>
+                </div>
+  
+                <div class="!mt-8">
+                  <button type="submit" class="w-full py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-green-400 hover:bg-green-500 focus:outline-none">
+                    Sign in
+                  </button>
+                </div>
+                <p class="text-gray-800 text-sm !mt-8 text-center">Tidak punya akun? <a href="/register-user" class="text-green-400 hover:underline ml-1 whitespace-nowrap font-semibold">Register</a></p>
+              </form>
             </div>
+          </div>
         </div>
-        <div class="md:block hidden w-1/2">
-            <img class="rounded-2xl max-h-[1600px]" src="https://images.unsplash.com/photo-1552010099-5dc86fcfaa38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxmcmVzaHxlbnwwfDF8fHwxNzEyMTU4MDk0fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="login form image">
-        </div>
-    </div>
-</section>
+      </div>
 </x-app-layout>

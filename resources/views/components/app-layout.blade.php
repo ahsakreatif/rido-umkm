@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    @if (!request()->is('register*'))
+    @if (!request()->is('register*') && !request()->is('login'))
         <header class="">
             <x-navbar></x-navbar>
         </header>
@@ -25,7 +25,7 @@
     <main>
         {{ $slot }}
     </main>
-    @if (!request()->is('register*'))
+    @if (!request()->is('register*') && !request()->is('login'))
         <footer class="container mx-auto">
             <x-footer></x-footer>
         </footer>

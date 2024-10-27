@@ -38,7 +38,7 @@ class UmkmRegisterController extends Controller
                 'nik' => $validated['nik'],
                 'phone' => $validated['phone'],
                 'password' => Hash::make($validated['password']),
-                'role_id' => 3, // role id umkm
+                'role_id' => 2, // role id umkm
             ]);
 
             Auth::login($user);

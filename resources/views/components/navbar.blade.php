@@ -49,6 +49,33 @@
                 </svg>
             </button>
         </div>
+        @if(Auth::check())
+        <div class="relative hidden lg:block">
+            <button id="user-menu-button" class="flex items-center focus:outline-none">
+                {{-- <img src="path/to/user/icon.png" alt="User Icon" class="w-8 h-8 rounded-full"> --}}
+                <span class="ml-2 text-sm sm:text-base text-inherit underline">{{ Auth::user()->email }}</span>
+            </button>
+            <div id="user-menu" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden">
+                <a class="block w-full text-left px-4 py-2 text-sm text-gray-700 ">Informasi Akun</a>
+                <a class="block w-full text-left px-4 py-2 text-sm text-gray-700 ">Ganti Password</a>
+                <a class="block w-full text-left px-4 py-2 text-sm text-gray-700 ">Pengaturan</a>
+                <div class="w-[90%] mx-auto my-1 h-[1px] bg-black/50"></div>
+                <form action="{{ route('logout') }}" method="POST" class="flex justify-between px-4 items-center hover:opacity-50">
+                    @csrf
+                    <button type="submit" class="block w-full text-left py-2 text-sm rounded-b text-red-500">Logout</button>
+                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000">
+
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                        
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                        
+                        <g id="SVGRepo_iconCarrier"> <path d="M12 3V12M18.3611 5.64001C19.6195 6.8988 20.4764 8.50246 20.8234 10.2482C21.1704 11.994 20.992 13.8034 20.3107 15.4478C19.6295 17.0921 18.4759 18.4976 16.9959 19.4864C15.5159 20.4752 13.776 21.0029 11.9961 21.0029C10.2162 21.0029 8.47625 20.4752 6.99627 19.4864C5.51629 18.4976 4.36274 17.0921 3.68146 15.4478C3.00019 13.8034 2.82179 11.994 3.16882 10.2482C3.51584 8.50246 4.37272 6.8988 5.6311 5.64001" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                        
+                        </svg>
+                </form>
+            </div>
+        </div>
+        @else
         <a href="{{ route('login') }}" class="btn hidden lg:block text-inherit">
             <svg class="svg absolute inset-0 w-full h-full" viewBox="0 0 180 60" preserveAspectRatio="none">
                 <rect x="2" y="2" width="176" height="56" rx="28" ry="28" class="bg-line stroke-inherit" />
@@ -56,6 +83,7 @@
             </svg>
             <span class="text-inherit relative z-10">Mulai Sekarang!</span>
         </a>
+        @endif
     </div>
 </nav>
 <div class="navbar-menu relative z-50 hidden">
@@ -183,5 +211,17 @@
             }
         }
         lastScrollTop = scrollTop;
+    });
+
+    document.getElementById('user-menu-button').addEventListener('click', function() {
+        const menu = document.getElementById('user-menu');
+        menu.classList.toggle('hidden'); // Menampilkan atau menyembunyikan dropdown
+    });
+
+    window.addEventListener('click', function(event) {
+        const menu = document.getElementById('user-menu');
+        if (!event.target.closest('#user-menu-button')) {
+            menu.classList.add('hidden'); // Menyembunyikan dropdown jika klik di luar
+        }
     });
 </script>
