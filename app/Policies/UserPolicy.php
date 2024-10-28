@@ -18,7 +18,7 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('super_admin'); // User biasa tidak bisa melihat daftar user
+        return $user->can('view_any_user');
     }
 
     /**
@@ -29,7 +29,7 @@ class UserPolicy
      */
     public function view(User $user): bool
     {
-        return $user->hasRole('super_admin'); // User biasa tidak bisa melihat detail user
+        return $user->can('view_user');
     }
 
     /**
@@ -40,7 +40,7 @@ class UserPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasRole('super_admin'); // User biasa tidak bisa membuat user
+        return $user->can('create_user');
     }
 
     /**
@@ -51,7 +51,7 @@ class UserPolicy
      */
     public function update(User $user): bool
     {
-        return $user->hasRole('super_admin'); // User biasa tidak bisa mengupdate user
+        return $user->can('update_user');
     }
 
     /**
@@ -62,7 +62,7 @@ class UserPolicy
      */
     public function delete(User $user): bool
     {
-        return $user->hasRole('super_admin'); // User biasa tidak bisa menghapus user
+        return $user->can('delete_user');
     }
 
     /**

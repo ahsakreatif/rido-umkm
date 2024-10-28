@@ -12,11 +12,14 @@ class SuperAdminSeeder extends Seeder
     {
         User::create([
             'name' => 'Super Admin',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('password'),
-            'role_id' => 1, // super_admin role
+            'email' => 'admin@sobatkaribrido.com',
+            'password' => Hash::make('ahsa123'),
             'nik' => '1234567890123456', // contoh NIK
             'phone' => '081234567890', // contoh nomor telepon
+            'email_verified_at' => now(),
         ]);
+
+        $user = User::where('email', 'admin@sobatkaribrido.com')->first();
+        $user->assignRole('super_admin');
     }
 }
