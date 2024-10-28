@@ -15,7 +15,8 @@ class ProductPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_product');
+        // Hanya izinkan pengguna 'umkm' untuk melihat produk mereka sendiri
+        return $user->hasRole('umkm') || $user->hasRole('super_admin');
     }
 
     /**
@@ -23,7 +24,8 @@ class ProductPolicy
      */
     public function view(User $user, Product $product): bool
     {
-        return $user->can('view_product');
+        // Hanya izinkan pengguna 'umkm' untuk melihat produk yang diupload oleh mereka sendiri
+        return $user->id === $product->user_id || $user->hasRole('super_admin');
     }
 
     /**
@@ -31,7 +33,8 @@ class ProductPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_product');
+        // Semua pengguna 'umkm' dapat membuat produk
+        return $user->hasRole('umkm');
     }
 
     /**
@@ -39,7 +42,8 @@ class ProductPolicy
      */
     public function update(User $user, Product $product): bool
     {
-        return $user->can('update_product');
+        // Hanya izinkan pengguna 'umkm' untuk memperbarui produk yang mereka upload
+        return $user->id === $product->user_id || $user->hasRole('super_admin');
     }
 
     /**
@@ -47,7 +51,8 @@ class ProductPolicy
      */
     public function delete(User $user, Product $product): bool
     {
-        return $user->can('delete_product');
+        // Hanya izinkan pengguna 'umkm' untuk menghapus produk yang mereka upload
+        return $user->id === $product->user_id || $user->hasRole('super_admin');
     }
 
     /**

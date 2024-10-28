@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -16,8 +17,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class ProductResource extends Resource
 {
@@ -29,18 +29,21 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
+                Hidden::make('user_id')
+                ->default(Auth::id()),
             TextInput::make('title')
                 ->required()
-                ->label('Title')
-                ->reactive()
-                ->afterStateUpdated(function ($state, callable $set) {
+                   ->label('Title')
+                   ->reactive()
+                   ->afterStateUpdated(function ($state, callable $set) {
+                    // Mengatur slug berdasarkan title
                     $set('slug', Str::slug($state));
                 }),
             TextInput::make('slug')
-                ->required()
-                ->label('Slug')
-                ->disabled()
-                ->hint('Otomatis dari title'),
+                   ->required()
+                   ->label('Slug')
+                   ->disabled()
+                   ->hint('Otomatis dari title'),
             RichEditor::make('about')
                 ->required()
                 ->label('About'),
@@ -55,6 +58,7 @@ class ProductResource extends Resource
                 ->disk('public')
                 ->required(),
             ]);
+            
     }
 
     public static function table(Table $table): Table
@@ -70,7 +74,12 @@ class ProductResource extends Resource
                 ->formatStateUsing(fn (string $state): string => 'Rp' . number_format($state, 0, ',', '.')),
             ImageColumn::make('image')
                 ->label('Product Image'),
+            TextColumn::make(name: 'user_id')
+            ->label(label: 'Publisher')
+            ->sortable()
+            ->searchable(),
             ])
+            
             ->filters([
                 //
             ])
