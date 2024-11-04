@@ -29,17 +29,21 @@ class UserRegisterController extends Controller
                 'password' => 'required|string|min:8|confirmed',
             ]);
 
-            $userRole = Role::where('name', 'user')->first();
-
             $user = User::create([
                 'name' => $validated['name'],
                 'email' => $validated['email'],
                 'nik' => $validated['nik'],
                 'phone' => $validated['phone'],
                 'password' => Hash::make($validated['password']),
-                'role_id' => 3, // role id user
+                // 'role_id' => 3, // role id user
             ]);
 
+            // assign role user
+            $user->assignRole('user');
+
+            // activate user
+            $user->email_verified_at = now();
+            $user->save();
 
             Auth::login($user);
 

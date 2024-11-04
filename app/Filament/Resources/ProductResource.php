@@ -58,7 +58,7 @@ class ProductResource extends Resource
                 ->disk('public')
                 ->required(),
             ]);
-            
+
     }
 
     public static function table(Table $table): Table
@@ -79,7 +79,6 @@ class ProductResource extends Resource
             ->sortable()
             ->searchable(),
             ])
-            
             ->filters([
                 //
             ])
@@ -91,7 +90,11 @@ class ProductResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])->modifyQueryUsing(function ($query) {
+                if (Auth::user()->hasRole('umkm')) {
+                    $query->where('user_id', Auth::id());
+                }
+            });
     }
 
     public static function getRelations(): array

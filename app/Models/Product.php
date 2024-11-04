@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, HasPanelShield;
 
     protected $fillable = [
         'title',
@@ -15,6 +16,11 @@ class Product extends Model
         'about',
         'price',
         'image',
-        'user_id', 
+        'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
